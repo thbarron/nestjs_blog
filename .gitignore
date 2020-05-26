@@ -38,4 +38,4 @@ pgdata/
 postgres-data/
 
 # Environment Variables
-.env
+/.env
