@@ -7,10 +7,13 @@ export class DatabaseConnectionService implements TypeOrmOptionsFactory {
     return {
       name: 'default',
       type: 'postgres',
-      host: process.env.DATABASE_HOST,
-      port: Number(process.env.DATABASE_PORT),
-      username: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
+      url:
+        'postgres://frtwwmnm:DuBg-yNcfMu_8FsPqAnmrbM_q2qOEjAy@ruby.db.elephantsql.com:5432/frtwwmnm',
+      // host: process.env.DATABASE_HOST,
+      // port: Number(process.env.DATABASE_PORT),
+      // database: process.env.DATABASE_DB,
+      // username: process.env.DATABASE_USER,
+      // password: process.env.DATABASE_PASSWORD,
       synchronize: true,
       dropSchema: false,
       logging: true,
