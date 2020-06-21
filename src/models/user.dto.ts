@@ -1,8 +1,8 @@
 import {} from 'class-validator';
 
-export class LoginDTO {
+export class LoginDto {
   email: string;
   password: string;
 }
 
-export class Registration extends LoginDTO {}
+export class RegistrationDto extends LoginDto {}
