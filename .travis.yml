@@ -1,0 +1,11 @@
+language: node_js
+
+node_js:
+  - "node"
+
+deploy:
+  provider: heroku
+  api_key: 882b57b7-8f23-4149-b0f6-d34ab65c6cc6
+  on: master
+  run:
+    - restart
