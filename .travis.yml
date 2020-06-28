@@ -2,10 +2,3 @@ language: node_js
 
 node_js:
   - "node"
-
-deploy:
-  provider: heroku
-  api_key: $HEROKU_API_KEY
-  on: master
-  run:
-    - restart
