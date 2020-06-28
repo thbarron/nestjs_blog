@@ -13,7 +13,7 @@ import { LoginDto, RegistrationDto } from '../models/user.dto';
 export class AuthService {
   constructor(
     @InjectRepository(UserEntity) private userRepo: Repository<UserEntity>,
-  ) {}
+  ) { }
 
   async register(credentials: RegistrationDto) {
     try {
