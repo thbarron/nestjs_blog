@@ -5,7 +5,7 @@ node_js:
 
 deploy:
   provider: heroku
-  api_key: 882b57b7-8f23-4149-b0f6-d34ab65c6cc6
+  api_key: $HEROKU_API_KEY
   on: master
   run:
     - restart
