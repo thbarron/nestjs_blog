@@ -13,12 +13,13 @@ import { LoginDto, RegistrationDto } from '../models/user.dto';
 export class AuthService {
   constructor(
     @InjectRepository(UserEntity) private userRepo: Repository<UserEntity>,
-  ) { }
+  ) {}
 
   async register(credentials: RegistrationDto) {
     try {
       const user = this.userRepo.create(credentials);
       await user.save();
+      return user;
     } catch (err) {
       if (err === '23505') {
         throw new ConflictException('Username has already been taken');
@@ -30,12 +31,13 @@ export class AuthService {
   async login({ email, password }: LoginDto) {
     try {
       const user = await this.userRepo.findOne({ where: { email } });
-      if (user && user.comparePassword(password)) {
+      const validPassword = await user.comparePassword(password);
+      if (user && validPassword) {
         return user;
       }
-      throw new UnauthorizedException('Invalid credentials');
+      throw new UnauthorizedException('Invalid credentials.');
     } catch (err) {
-      throw new InternalServerErrorException();
+      throw new UnauthorizedException('Invalid credentials.');
     }
   }
 }

@@ -5,4 +5,6 @@ export class LoginDto {
   password: string;
 }
 
-export class RegistrationDto extends LoginDto {}
+export class RegistrationDto extends LoginDto {
+  username: string;
+}
